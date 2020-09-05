@@ -1,0 +1,77 @@
+{
+    "items":[
+        {
+            "sys": {"id":"1"},
+            "fields": {
+                "title": "mock up1",
+                "price":12.08,
+                "image":{"fields":{"file":{"url":"logo/amanworld 3D3 - Copy.jpg"}}}
+                    
+                }
+            },
+            {
+                "sys": {"id":"2"},
+                "fields": {
+                    "title": "mock up2",
+                    "price":13.08,
+                    "image":{"fields":{"file":{"url":"logo/dollywealth22.jpg"}}}
+                        
+                    }
+                },
+                {
+                    "sys": {"id":"3"},
+                    "fields": {
+                        "title": "mock up3",
+                        "price":14.08,
+                        "image":{"fields":{"file":{"url":"logo/drink to shrink.png"}}}
+                            
+                        }
+                    },
+                    {
+                        "sys": {"id":"4"},
+                        "fields": {
+                            "title": "mock up4",
+                            "price":15.08,
+                            "image":{"fields":{"file":{"url":"logo/first ladies.png"}}}
+                                
+                            }
+                        },
+                        {
+                            "sys": {"id":"5"},
+                            "fields": {
+                                "title": "mock up5",
+                                "price":16.08,
+                                "image":{"fields":{"file":{"url":"logo/jossy jos.png"}}}
+                                    
+                                }
+                            },
+                            {
+                                "sys": {"id":"6"},
+                                "fields": {
+                                    "title": "mock up6",
+                                    "price":17.08,
+                                    "image":{"fields":{"file":{"url":"logo/moon trader 3d - Copy.jpg"}}}
+                                        
+                                    }
+                                },
+                                {
+                                    "sys": {"id":"7"},
+                                    "fields": {
+                                        "title": "mock up7",
+                                        "price":18.08,
+                                        "image":{"fields":{"file":{"url":"logo/NOBLE MIND3D - Copy.jpg"}}}
+                                            
+                                        }
+                                    },
+                                    {
+                                        "sys": {"id":"8"},
+                                        "fields": {
+                                            "title": "mock up8",
+                                            "price":19.08,
+                                            "image":{"fields":{"file":{"url":"logo/PS - Copy.png"}}}
+                                                
+                                            }
+                                        }
+        
+    ]
+}
