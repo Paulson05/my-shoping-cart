@@ -58,7 +58,7 @@ class UI {
   
   buttons.forEach(button => {
       let id = button.dataset.id;
-    //   console.log(id);
+      console.log(id);
       let incart = cart.find(item => item.id === id);
       if (incart){
           button.innerHTML  = "in cart";
@@ -81,8 +81,6 @@ class UI {
       }
 
        } );
-
-       
 }
 
 };
