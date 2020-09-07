@@ -119,22 +119,32 @@ cartcontent.appendChild(div);
 }
 showcart(){
     cartoverlay.classList.add("transparentbcg");
-    cartDom.classList.add("showcart");
+    // cartDom.classList.add("showcart");
 }
-// setupApp(){
-//   cart = Storage.getcart();
-//   this.setcartvalues(cart);
-//   this.populate(cart);
-//   cartbtn.addEventListener("click", this.showcart);
-//   closebtn.addEventListener("click", this.hidecart); 
-// }
-// populatecart(cart){
-//     cart.forEach(item => this.addcartitem(item));
-// }
-// hidecart(){
-//     cartoverlay.classList.remove("transparentbcg");
-//     cartDom.classList.remove("showcart");
-// }
+setupApp(){
+  cart = Storage.getcart();
+  this.setcartvalues(cart);
+  this.populatecart(cart);
+  cartbtn.addEventListener("click", this.showcart);
+  closebtn.addEventListener("click", this.hidecart); 
+}
+populatecart(cart){
+    cart.forEach(item => this.addcartitem(item));
+}
+hidecart(){
+    cartoverlay.classList.remove("transparentbcg");
+    cartDom.classList.remove("showcart");
+}
+cartlogic(){
+    clearCartBtn.addEventListener("click", () => {
+        this.clearCart();
+    });
+    
+}
+clearCart(){
+    let cartitems = cart.map(item => item.id)
+    console.log(cartitems);
+}
 };
 class Storage{
     static  saveProducts(products){
@@ -157,13 +167,13 @@ document.addEventListener("DOMContentLoaded",() =>{
 const ui = new UI();
 const products = new Products();
 // setup app
-// ui.setupApp();  
+ui.setupApp();  
 
 // get all product
 products
 .getproducts()
 .then(products =>{
-    //    ui.displayproducts(products);
+       ui.displayproducts(products);
    Storage.saveProducts(products);
 }).then(()=>{
     ui.getbagbuttons();
@@ -172,3 +182,4 @@ products
 });
 
 
+ 

@@ -5,7 +5,7 @@
             "fields": {
                 "title": "mock up1",
                 "price":12.08,
-                "image":{"fields":{"file":{"url":"logo/amanworld 3D3 .jpg"}}}
+                "image":{"fields":{"file":{"url":"logo/amanworld.jpg"}}}
                     
                 }
             },
@@ -23,7 +23,7 @@
                     "fields": {
                         "title": "mock up3",
                         "price":14.08,
-                        "image":{"fields":{"file":{"url":"logo/drink to shrink.jpg"}}}
+                        "image":{"fields":{"file":{"url":"logo/drinktoshrink.jpg"}}}
                             
                         }
                     },
@@ -32,7 +32,7 @@
                         "fields": {
                             "title": "mock up4",
                             "price":15.08,
-                            "image":{"fields":{"file":{"url":"logo/first ladies.jpg"}}}
+                            "image":{"fields":{"file":{"url":"logo/firstladies.png"}}}
                                 
                             }
                         },
@@ -41,7 +41,7 @@
                             "fields": {
                                 "title": "mock up5",
                                 "price":16.08,
-                                "image":{"fields":{"file":{"url":"logo/dollywealth22.jpg"}}}
+                                "image":{"fields":{"file":{"url":"logo/NOBLEMIND.jpg"}}}
                                     
                                 }
                             },
@@ -50,7 +50,7 @@
                                 "fields": {
                                     "title": "mock up6",
                                     "price":17.08,
-                                    "image":{"fields":{"file":{"url":"logo/moon trader.jpg"}}}
+                                    "image":{"fields":{"file":{"url":"logo/moontrader.jpg"}}}
                                         
                                     }
                                 },
@@ -68,7 +68,7 @@
                                         "fields": {
                                             "title": "mock up8",
                                             "price":19.08,
-                                            "image":{"fields":{"file":{"url":"logo/TZ LOGO.jpg"}}}
+                                            "image":{"fields":{"file":{"url":"logo/TZLOGO.jpg"}}}
                                                 
                                             }
                                         }
