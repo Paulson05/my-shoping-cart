@@ -1,9 +1,9 @@
 const cartbtn = document.querySelector('.cart-btn');
 const closebtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
-const cartDom = document.querySelector("cart");
+const cartDom = document.querySelector(".cart");
 const cartoverlay = document.querySelector(".cart-overlay");
-const cartitem = document.querySelector(".cart-items");
+const cartitems = document.querySelector(".cart-items");
 const carttotal = document.querySelector(".cart-total");
 const  cartcontent = document.querySelector(".cart-content"); 
 const productsDOM = document.querySelector(".product-center");
@@ -41,7 +41,7 @@ class UI {
           result +=`   <article class="product">
           <div class="img-container">
               <img src="${product.image}" alt="" class="product-img">
-              <button class="bag-btn" data-id=${product.id}>add to bag</button>
+              <button class="bag-btn" data-id=${product.id}>add to cart</button>
           </div>
           <h3>${product.title}</h3>
           <h4>${product.price}</h4>
@@ -55,7 +55,7 @@ class UI {
       const buttons  = [...document.querySelectorAll (".bag-btn")]; 
     //   console.log(buttons);
       
-  
+  buttonsDOM = buttons;
   buttons.forEach(button => {
       let id = button.dataset.id;
     //   console.log(id);
@@ -96,7 +96,7 @@ setcartvalues(cart){
         itemtotal += item.amount;
     });
     carttotal.innerText = parseFloat(temptotal.toFixed(2));
-    cartitem.innerText = itemtotal;
+    cartitems.innerText = itemtotal;
     // console.log(carttotal, cartitem);
 } 
 addcartitem(item){
@@ -119,7 +119,7 @@ cartcontent.appendChild(div);
 }
 showcart(){
     cartoverlay.classList.add("transparentbcg");
-    // cartDom.classList.add("showcart");
+    cartDom.classList.add("showcart");
 }
 setupApp(){
   cart = Storage.getcart();
@@ -139,11 +139,27 @@ cartlogic(){
     clearCartBtn.addEventListener("click", () => {
         this.clearCart();
     });
-    
+ 
 }
 clearCart(){
-    let cartitems = cart.map(item => item.id)
-    console.log(cartitems);
+    let cartitems = cart.map(item => item.id);
+
+    cartitems.forEach(id  =>this.removeitem(id));
+    while(cartcontent.children.length > 0){
+        cartcontent.removeChild(cartcontent.children[0]);
+    }
+    this.hidecart();
+}
+removeitem(id){
+    cart  = cart.filter(item  => item.id  !==id );
+    this.setcartvalues(cart);
+    Storage.savecart(cart);
+    let button = this.getsinglebutton(id);
+    button.disabled = false;
+    button.innerHTML = `<i class = "fa fa-shoping-cart"></i>add to cart`;
+}
+getsinglebutton(id){
+    return buttonsDOM.find(button => button.dataset.id === id); 
 }
 };
 class Storage{
@@ -177,6 +193,8 @@ products
    Storage.saveProducts(products);
 }).then(()=>{
     ui.getbagbuttons();
+    ui.cartlogic();
+    
 }); 
 
 });
