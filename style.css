@@ -30,6 +30,9 @@
 }
 .nav-icon{
     font-size:1.5rem
+    
+}
+.cart-items{ position: relative; top:-37px; right:-10px; background-color: orange; padding: 0 5px; border-bottom: 30%; color: white; border-radius: 20px; -webkit-border-radius: 20p; -moz-border-radius: 20px; -ms-border-radius: 20px; -o-border-radius: 20px; -webkit-border-radius: 20px;
 }
 
 .hero{

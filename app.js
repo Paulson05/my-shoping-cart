@@ -33,7 +33,7 @@ try {
 }
 }
 };
-
+  
 class UI {
     displayproducts(products){
       let result = "";
@@ -83,7 +83,7 @@ class UI {
                //show the cart
                this.showcart();
 
-          } );
+          });
       }
 
        } );
@@ -106,12 +106,12 @@ addcartitem(item){
     <div>
         <h4>${item.title}</h4>
         <h5>${item.price}</h5>
-        <span class="remove-item" data-id${item.id}>remove</span>
+        <span class="remove-item" data-id=${item.id}>remove</span>
     </div>
     <div>
-        <i class="fa fa-cheveron-up " data-id${item.id}i>
+        <i class="fa fa-chevron-up " data-id=${item.id}i>
         <p class="item-amount">${item.amount}</p>
-        <i class="fa fa-chevron-down" data-id${item.id}></i>
+        <i class="fa fa-chevron-down" data-id=${item.id}></i>
     </div>`;
     
 cartcontent.appendChild(div);
@@ -136,16 +136,41 @@ hidecart(){
     cartDom.classList.remove("showcart");
 }
 cartlogic(){
+    // clear cart button
     clearCartBtn.addEventListener("click", () => {
         this.clearCart();
+    });
+    // cart functionality
+    cartcontent.addEventListener("click", event =>{
+       
+       if(event.target.classList.contains("remove-item")){
+           let removeitem = event.target;
+           let id =  removeitem.dataset.id;
+           cartcontent.removeChild(removeitem.parentElement.parentElement);
+           this.removeitem(id);
+       } 
+       else if(event.target.classList.contains(" fa-chevron-up")){
+           let addAmount = event.target;
+           let id = addAmount.dataset.id;
+           console.log(addAmount);
+        let tempitem = cart.find(item => item.id ===id);
+        tempitem.amount = tempitem.amount + 1;
+        Storage.savecart(cart);
+        this.setcartvalues(cart);
+        addAmount.nextElementSibling.innerText =
+        tempitem.amount; 
+       }
+       else if(event.target.classList.contains("fa-chevron-down")){
+           
+       }
     });
  
 }
 clearCart(){
     let cartitems = cart.map(item => item.id);
-
+ 
     cartitems.forEach(id  =>this.removeitem(id));
-    while(cartcontent.children.length > 0){
+    while(cartcontent.children.length>0){
         cartcontent.removeChild(cartcontent.children[0]);
     }
     this.hidecart();
@@ -169,14 +194,14 @@ class Storage{
         
     static getproducts(id){
         let products  = JSON.parse(localStorage.getItem("products"));
-        return products.find(product => product.id === id )
+        return products.find(product => product.id === id ); 
     }
 
     static savecart(cart){
-        localStorage.setItem("cart", JSON.stringify(cart ))
+        localStorage.setItem("cart", JSON.stringify(cart ));
     }
     static getcart(){
-        return localStorage.getItem("cart")?JSON.parse(localStorage.getItem('cart')):[]
+        return localStorage.getItem("cart")?JSON.parse(localStorage.getItem('cart')):[];
     }
 }
 document.addEventListener("DOMContentLoaded",() =>{
