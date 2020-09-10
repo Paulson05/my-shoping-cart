@@ -227,7 +227,7 @@ ui.setupApp();
 products
 .getproducts()
 .then(products =>{
-       ui.displayproducts(products);
+    //    ui.displayproducts(products);
    Storage.saveProducts(products);
 }).then(()=>{
     ui.getbagbuttons();
