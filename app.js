@@ -109,7 +109,7 @@ addcartitem(item){
         <span class="remove-item" data-id=${item.id}>remove</span>
     </div>
     <div>
-        <i class="fa fa-chevron-up " data-id=${item.id}i>
+        <i class="fa fa-chevron-up" data-id=${item.id}></i>
         <p class="item-amount">${item.amount}</p>
         <i class="fa fa-chevron-down" data-id=${item.id}></i>
     </div>`;
@@ -142,17 +142,16 @@ cartlogic(){
     });
     // cart functionality
     cartcontent.addEventListener("click", event =>{
-       
+     
        if(event.target.classList.contains("remove-item")){
            let removeitem = event.target;
            let id =  removeitem.dataset.id;
            cartcontent.removeChild(removeitem.parentElement.parentElement);
            this.removeitem(id);
-       } 
-       else if(event.target.classList.contains(" fa-chevron-up")){
+       }  else if(event.target.classList.contains("fa-chevron-up")){
            let addAmount = event.target;
            let id = addAmount.dataset.id;
-           console.log(addAmount);
+        //    console.log(addAmount);
         let tempitem = cart.find(item => item.id ===id);
         tempitem.amount = tempitem.amount + 1;
         Storage.savecart(cart);
@@ -161,7 +160,21 @@ cartlogic(){
         tempitem.amount; 
        }
        else if(event.target.classList.contains("fa-chevron-down")){
-           
+        let lowerAmount =  event.target;
+        let id = lowerAmount.dataset.id;
+        // console.log(lowerAmount)
+        let tempitem = cart.find(item => item.id ===id);
+        tempitem.amount = tempitem.amount - 1;
+        if( tempitem.amount  > 0){
+            Storage.savecart(cart);
+            this.setcartvalues(cart);
+            lowerAmount.previousElementSibling.innerText =
+            tempitem.amount; 
+        }
+        else{
+            cartcontent.removeChild(lowerAmount.parentElement.parentElement)
+            this.removeitem(id)
+        }
        }
     });
  
@@ -181,7 +194,7 @@ removeitem(id){
     Storage.savecart(cart);
     let button = this.getsinglebutton(id);
     button.disabled = false;
-    button.innerHTML = `<i class = "fa fa-shoping-cart"></i>add to cart`;
+    button.innerHTML = `<i class = "fa fa-shopping-cart"></i>add to cart`;
 }
 getsinglebutton(id){
     return buttonsDOM.find(button => button.dataset.id === id); 
