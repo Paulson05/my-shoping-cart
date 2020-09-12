@@ -1,12 +1,14 @@
+
 const cartbtn = document.querySelector('.cart-btn');
+const cartitems = document.querySelector(".cart-items");
+const productsDOM = document.querySelector(".product-center");
 const closebtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
 const cartDom = document.querySelector(".cart");
 const cartoverlay = document.querySelector(".cart-overlay");
-const cartitems = document.querySelector(".cart-items");
 const carttotal = document.querySelector(".cart-total");
 const  cartcontent = document.querySelector(".cart-content"); 
-const productsDOM = document.querySelector(".product-center");
+
  
 let cart = []; 
   
@@ -118,7 +120,7 @@ cartcontent.appendChild(div);
 
 }
 showcart(){
-    cartoverlay.classList.add("transparentbcg");
+    // cartoverlay.classList.add("transparentbcg");
     cartDom.classList.add("showcart");
 }
 setupApp(){
@@ -236,6 +238,9 @@ products
 }); 
 
 });
+cartbtn.addEventListener("click", () =>{
+    cartoverlay.classList.add("transparentbcg");
+} )
 
 
- 
+

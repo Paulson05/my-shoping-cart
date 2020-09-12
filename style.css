@@ -9,6 +9,7 @@
 .cart-btn{
     margin-left: 40%;
 }
+
 .navbar{
     position:sticky;
     top:0;
@@ -60,8 +61,8 @@
    text-transform: uppercase;
    letter-spacing: 0.1rem;
    font-size: 1rem;
-   background-color: tomato;
-   color: violet;
+   background-color: rgb(71, 70, 70);
+   color: rgb(230, 229, 236);
    border: 1px solid yellowgreen;
    transition: all 0.3s linear;
    -webkit-transition: all 0.3s linear;
@@ -72,7 +73,7 @@
 
 .banner-btn:hover{
      background: transparent;
-     color: turquoise;
+     color: rgb(93, 64, 224);
 }
 
 
@@ -174,7 +175,7 @@ width: 90%;
     height: 100%;
     overflow: scroll;
     z-index: 3;
-    background: rgb(27, 182, 53);
+    background: yellowgreen;
 
     font-size: 30px;
 
@@ -203,7 +204,7 @@ margin: 1.5rem 4rem;
 }
 .close-cart{
     font-size: 2.7rem;
-    background: rgb(20, 20, 20);
+    position: sticky !important;
     color: bisque;
     margin-left: 30px;
 }
