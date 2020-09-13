@@ -240,7 +240,7 @@ products
 });
 cartbtn.addEventListener("click", () =>{
     cartoverlay.classList.add("transparentbcg");
-} )
+});
 
 
 
