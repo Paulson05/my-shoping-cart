@@ -118,8 +118,14 @@
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
 }
+.add{
+    background: blue;
+    color:white;
+    font-size:20px;
+    text-align:center;
+}
 .bag-btn{
-    position: absolute;
+    /* position: absolute;
     top: 70%;
     right: 0;
     background: rgb(233, 173, 10);
@@ -135,11 +141,13 @@
     -webkit-transform: translateX(101%);  
     -moz-transform: translateX(101%);
     -ms-transform: translateX(101%);
-    -o-transform: translateX(101%);
+    -o-transform: translateX(101%); */
+    width:90%;
+    color:red;
 }
-.bag-btn:hover{
+/* .bag-btn:hover{
     color: rgb(235, 224, 235);
-}
+} */
 
 .product-img{
 width: 90%;
